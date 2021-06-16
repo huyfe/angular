@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:3000/
+
+GET {{baseUrl}}projects
+
+###
+GET {{baseUrl}}tasks
+
+###
+GET {{baseUrl}}teams
+
+###
+GET {{baseUrl}}users
+
+###
+GET {{baseUrl}}team/1/users

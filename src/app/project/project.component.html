@@ -1,0 +1,105 @@
+<main>
+    <div class="wrapper">
+        <div id="project">
+            <!-- <div class="project__box box" *ngIf="user.role == 'leader'"> -->
+            <div class="project__box box" >
+                <div class="project__heading">
+                    <span>Project</span>
+                </div>
+                <div class="project__btn">
+                    <button *ngIf="user.role == 1" class="btn btn__primary"  (click)='addProject()' >Create Project <i class="fas fa-folder-plus"></i></button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Project ID</th>
+                            <th>Project Name</th>
+                            <th>Date of Start</th>
+                            <th>Team Size</th>
+                            <th *ngIf="user.role == 1">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of listProjects | paginate:{id:'listing_pagination',itemsPerPage: 5,currentPage: page }">
+                            <td>{{p.id}}</td>
+                            <td>{{p.projectName}}</td>
+                            <td>{{p.dateOfStart}}</td>
+                            <td>{{p.teamSize}}</td>
+                            <td *ngIf="user.role == 1">
+                                <button class="btn btn__table edit" (click)='editProject(p.id)'><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn btn__table delete" (click)='deleteProject(p.id)'><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls id="listing_pagination" (pageChange)="page=$event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</main>
+<div *ngIf="showProject" class="popup">
+    <div class="fromp">
+        <div class="fromp__title">
+            <h2>new project</h2>
+        </div>
+        <div class="fromp__close">
+            <button class="btn btn__close" (click)='hideProject()'>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form action="" class="formp__form" [formGroup]="projectForm" (ngSubmit)="submitAdd()">
+            <!-- <div class="gr__ipt">
+                <span>Project ID</span>
+                <input type="number" formControlName="id" class="formp__ipt ipt" placeholder="Project ID">
+            </div> -->
+            <div class="gr__ipt">
+                <span>Project Name</span>
+                <input type="text" formControlName="projectName" class="formp__ipt ipt" placeholder="Project Name">
+            </div>
+            <div class="gr__ipt">
+                <span>Date of Start</span>
+                <input type="date" formControlName="dateOfStart" class="formp__ipt ipt" placeholder="Date of Start">
+            </div>
+            <div class="gr__ipt">
+                <span>Team Size</span>
+                <input type="number" formControlName="teamSize" class="formp__ipt ipt" placeholder="Team Size">
+                
+            </div>
+            <div class="gr__btn">
+                <button class="btn btn__formp" (click)='hideProject()'>cancel</button>
+                <button class="btn btn__formp" type="submit">save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div *ngIf="showEdit" class="popup">
+    <div class="fromp">
+        <div class="fromp__title">
+            <h2>edit project</h2>
+        </div>
+        <div class="fromp__close">
+            <button class="btn btn__close" (click)='hideEditProject()'>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form action="" class="formp__form" [formGroup]="projectIDForm" (ngSubmit)="submitEdit(project.id)">
+            <div class="gr__ipt">
+                <span>Project Name</span>
+                <input type="text" formControlName="projectNameID" class="formp__ipt ipt" placeholder="Project Name">
+            </div>
+            <div class="gr__ipt">
+                <span>Date of Start</span>
+                <input type="date" formControlName="dateOfStartID" class="formp__ipt ipt" placeholder="Date of Start">
+            </div>
+            <div class="gr__ipt">
+                <span>Team Size</span>
+                <input type="number" formControlName="teamSizeID" class="formp__ipt ipt" placeholder="Team Size">
+                
+            </div>
+            <div class="gr__btn">
+                <button class="btn btn__formp" (click)='hideEditProject()' >cancel</button>
+                <button class="btn btn__formp" type="submit">save</button>
+            </div>
+        </form>
+    </div>
+</div>

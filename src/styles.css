@@ -1,1 +1,501 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+:root {
+  --light-bg: #e4ebf5;
+  --light-bg-dark-shadow: #bec8e4;
+  --light-bg-light-shadow: #fff;
+  --primary: #2979ff;
+  --color-gray: rgba(0, 0, 0, 0.7);
+  --box-shadow-inset: inset -2px -2px 5px var(--light-bg-light-shadow), inset 2px 2px 5px var(--light-bg-dark-shadow);
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: var(--light-bg);
+}
+header {
+  padding: 20px 0;
+}
+.wrapper {
+  border-radius: 10px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 30px;
+  background-color: var(--light-bg);
+  box-shadow: 3px 3px 6px var(--light-bg-dark-shadow), -3px -3px 6px var(--light-bg-light-shadow);
+}
+
+.box {
+  background: --light-bg;
+  box-shadow: 6px 6px 12px var(--light-bg-dark-shadow), -6px -6px 12px var(--light-bg-light-shadow);
+  border-radius: 15px;
+  margin: 50px 0;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn__primary {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: #fff;
+  box-shadow: var(--box-shadow-inset);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+
+.btn__table {
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 7px 10px;
+  margin: 0;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--box-shadow-inset);
+  color: #000;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn__table.edit:hover {
+  background: #3490dc;
+  box-shadow: none;
+}
+
+.btn__table.delete:hover {
+  background: #e3342f;
+  box-shadow: none;
+  color: #fff;
+}
+
+main {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #e4ebf5;
+}
+
+.ipt {
+  border: none;
+  outline: none;
+}
+
+.ipt::placeholder {
+  color: rgba(85, 254, 119, 0.3);
+}
+
+.ipt[type="number"]::-webkit-inner-spin-button,
+.ipt[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+.ipt[type="date"]::-webkit-datetime-edit-day-field,
+.ipt[type="date"]::-webkit-datetime-edit-month-field,
+.ipt[type="date"]::-webkit-datetime-edit-year-field {
+  color: var(--primary);
+}
+
+.ipt[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ipt[type="date"] {
+  position: relative;
+}
+
+.ipt[type="date"]:after {
+  position: absolute;
+  z-index: 1;
+  content: "\f073";
+  font-family: "Font Awesome 5 Free";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary);
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  background: none;
+  pointer-events: none;
+}
+
+.btn__formp {
+  min-width: 100px;
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 5px 20px;
+  background: #fff;
+  box-shadow: var(--box-shadow-inset);
+  border-radius: 20px;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.btn__formp:hover {
+  color: var(--primary);
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+
+.fromp {
+  position: relative;
+  width: 450px;
+  padding: 50px;
+  padding-top: 30px;
+  background-color: var(--light-bg);
+  box-shadow: var(--box-shadow-inset);
+  border-radius: 10px;
+}
+
+.fromp__title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.fromp__title h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--color-gray);
+  text-transform: uppercase;
+}
+
+.fromp__close {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.btn__close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: var(--box-shadow-inset);
+  transform: translate(-50%, -50%);
+}
+
+.btn__close i {
+  font-size: 25px;
+}
+
+.gr__ipt {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.gr__ipt span {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-gray);
+}
+
+.formp__ipt {
+  width: 60%;
+  font-size: 20px;
+  padding: 5px 7px;
+  background-color: #fff;
+  box-shadow: var(--box-shadow-inset);
+  border-radius: 5px;
+  color: var(--primary);
+}
+
+/* .formp__ipt.ng-invalid{
+    border-bottom: 3px solid #E3342F;
+} */
+
+.gr__btn {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+select option {
+  background-color: #000;
+  outline: none;
+  border: none;
+}
+
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 3px;
+}
+
+.ngx-pagination {
+  text-align: center;
+}
+
+.ngx-pagination li {
+  font-weight: 900;
+  border-radius: 50%;
+  margin: 0 10px;
+  color: #000;
+  transition: 0.5s;
+}
+
+.ngx-pagination li a {
+  font-weight: 900;
+  border-radius: 50%;
+  color: var(--primary);
+  transition: 0.5s;
+}
+
+.ngx-pagination li a:hover {
+  font-weight: 900;
+  border-radius: 50%;
+  color: var(--primary);
+  background-color: transparent;
+  text-shadow: 0 0 2px var(--primary), 0 0 4px var(--primary), 0 0 6px var(--primary), 0 0 8px var(--primary);
+}
+
+.ngx-pagination li.current {
+  font-weight: 900;
+  border-radius: 50%;
+  color: var(--primary);
+  background-color: #fff;
+  box-shadow: 3px 3px 6px var(--light-bg-dark-shadow), -3px -3px 6px var(--light-bg-light-shadow);
+}
+
+.ngx-pagination li.disabled {
+  color: var(--primary);
+  text-shadow: 3px 3px 6px var(--light-bg-dark-shadow), -3px -3px 6px var(--light-bg-light-shadow);
+}
+
+/* .ngx-pagination .pagination-previous,
+.ngx-pagination .pagination-next{
+    background-color: var(--primary);
+    border-radius: 30px;
+    margin: 0 20px;
+} */
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -40%);
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  box-shadow: 3px 3px 6px var(--light-bg-dark-shadow), -3px -3px 6px var(--light-bg-light-shadow);
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: var(--primary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 30px;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  background: #fff;
+  box-shadow: var(--box-shadow-inset);
+  border-radius: 8px;
+
+  margin-top: 10px;
+}
+
+.login-box .user-box label {
+  font-size: 18px;
+  color: var(--color-gray);
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+.login-box form button {
+  display: block;
+  padding: 10px 20px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.2s;
+  margin: 0 auto;
+  margin-top: 15px;
+  letter-spacing: 2px;
+  background-color: transparent;
+
+  box-shadow: 6px 6px 12px var(--light-bg-dark-shadow), -6px -6px 12px var(--light-bg-light-shadow);
+}
+
+.login-box button:hover {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.login-box button span {
+  position: absolute;
+  display: block;
+}
+
+.login-box button a {
+  color: var(--primary);
+}
+.login-box .btn-register {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  color: var(--primary);
+}
+.login-box .btn-register:hover {
+  text-decoration: underline;
+}
+.login-box button:hover a {
+  color: #fff;
+}
+
+.login-box button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary));
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.login-box button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--primary));
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.login-box button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--primary));
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.login-box button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--primary));
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.col-4 {
+  width: 40%;
+  float: left;
+}
+.col-8 {
+  width: 60%;
+  float: right;
+}

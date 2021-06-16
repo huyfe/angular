@@ -1,0 +1,195 @@
+<main>
+    <div class="wrapper">
+        <div id="task">
+            <!-- <div class="task__box box" *ngIf="user.role == 'employee'"> -->
+            <div class="task__box box">
+                <div class="task__heading">
+                    <span>Task</span>
+                </div>
+                <div class="task__btn">
+                    <button class="btn btn__primary" (click)='addTask()'>Create Task <i class="fas fa-folder-plus"></i></button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Task Name</th>
+                            <th>Desscription</th>
+                            <th>Project</th>
+                            <th>Assigned To</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of listTasks | paginate:{id:'listing_pagination',itemsPerPage: 5,currentPage: page }">
+                            <td>{{t.id}}</td>
+                            <td>{{t.name}}</td>
+                            <td>{{t.description}}</td>
+                            <td>{{t.project}}</td>
+                            <td>{{t.assignedTo}}</td>
+                            <td>{{t.priority}}</td>
+                            <td>{{t.status}}</td>
+                            <td>
+                                <button class="btn btn__table edit" (click)='editTask(t.id)'><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn btn__table delete m-3" (click)='deleteTask(t.id)'><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls id="listing_pagination" (pageChange)="page=$event"></pagination-controls>
+            </div>
+            <!-- <div class="task__box box" *ngIf="user.role == 'leader'"> -->
+            <!-- <div class="task__box box">
+                <div class="task__heading">
+                    <span>Task</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Task Name</th>
+                            <th>Desscription</th>
+                            <th>Project</th>
+                            <th>Assigned To</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of listTasks | paginate:{id:'listing_pagination',itemsPerPage: 5,currentPage: page }">
+                            <td>{{t.id}}</td>
+                            <td>{{t.name}}</td>
+                            <td>{{t.description}}</td>
+                            <td>{{t.project}}</td>
+                            <td>{{t.assignedTo}}</td>
+                            <td>{{t.priority}}</td>
+                            <td>{{t.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls id="listing_pagination" (pageChange)="page=$event"></pagination-controls>
+            </div> -->
+        </div>
+    </div>
+</main>
+<div *ngIf="showTask" class="popup">
+    <div class="fromp">
+        <div class="fromp__title">
+            <h2>new task</h2>
+        </div>
+        <div class="fromp__close">
+            <button class="btn btn__close" (click)='hideTask()'>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form action="" class="formp__form" [formGroup]="taskForm" (ngSubmit)="submitAdd()">
+            <div class="gr__ipt">
+                <span>Task name</span>
+                <input type="text" formControlName="name" class="formp__ipt ipt" placeholder="Task name">
+            </div>
+            <div class="gr__ipt">
+                <span>Description</span>
+                <textarea formControlName="description" class="formp__ipt ipt" cols="30" rows="1"></textarea>
+            </div>
+            <div class="gr__ipt">
+                <span>Project</span>
+                <select formControlName="project" class="formp__ipt ipt">
+                    <option *ngFor="let p of listProjects" value="{{p.projectName}}">{{p.projectName}}</option>
+                </select>
+            </div>
+            <div class="gr__ipt">
+                <span>Assigned To</span>
+                <select formControlName="assignedTo" class="formp__ipt ipt">
+                    <option value="Designer">Designer</option>
+                    <option value="Front End">Front End</option>
+                    <option value="Back End">Back End</option>
+                    <option value="Database">Database</option>
+                    <option value="Tester">Tester</option>
+                </select>
+            </div>
+
+            <div class="gr__ipt">
+                <span>Priority</span>
+                <select formControlName="priority" class="formp__ipt ipt">
+                    <option value="Easy">Easy</option>
+                    <option value="Nomal">Nomal</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+            <div class="gr__ipt">
+                <span>Status</span>
+                <select formControlName="status" class="formp__ipt ipt">
+                    <option value="Holding">Holding</option>
+                    <option value="Complete">Complete</option>
+                </select>
+            </div>
+
+            <div class="gr__btn">
+                <button class="btn btn__formp" (click)='hideTask()'>cancel</button>
+                <button class="btn btn__formp" type="submit">save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="showEdit" class="popup">
+    <div class="fromp">
+        <div class="fromp__title">
+            <h2>edit task</h2>
+        </div>
+        <div class="fromp__close">
+            <button class="btn btn__close" (click)='hideEditTask()'>
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form action="" class="formp__form" [formGroup]="taskIDForm" (ngSubmit)="submitEdit(task.id)">
+            <div class="gr__ipt">
+                <span>Task name</span>
+                <input type="text" formControlName="nameID" class="formp__ipt ipt" placeholder="Task name">
+            </div>
+            <div class="gr__ipt">
+                <span>Description</span>
+                <textarea formControlName="descriptionID" class="formp__ipt ipt" cols="30" rows="1"></textarea>
+            </div>
+            <div class="gr__ipt">
+                <span>Project</span>
+                <select formControlName="projectID" class="formp__ipt ipt">
+                    <option *ngFor="let p of listProjects" value="{{p.projectName}}">{{p.projectName}}</option>
+                </select>
+            </div>
+            <div class="gr__ipt">
+                <span>Assigned To</span>
+                <select formControlName="assignedToID" class="formp__ipt ipt">
+                    <option value="Designer">Designer</option>
+                    <option value="Front End">Front End</option>
+                    <option value="Back End">Back End</option>
+                    <option value="Database">Database</option>
+                    <option value="Tester">Tester</option>
+                </select>
+            </div>
+
+            <div class="gr__ipt">
+                <span>Priority</span>
+                <select formControlName="priorityID" class="formp__ipt ipt">
+                    <option value="Easy">Easy</option>
+                    <option value="Nomal">Nomal</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+            <div class="gr__ipt">
+                <span>Status</span>
+                <select formControlName="statusID" class="formp__ipt ipt">
+                    <option value="Holding">Holding</option>
+                    <option value="Complete">Complete</option>
+                </select>
+            </div>
+
+            <div class="gr__btn">
+                <button class="btn btn__formp" (click)='hideEditTask()'>cancel</button>
+                <button class="btn btn__formp">save</button>
+            </div>
+        </form>
+    </div>
+</div>

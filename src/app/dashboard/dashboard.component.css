@@ -1,0 +1,262 @@
+#dashboard {
+    display: flex;
+    justify-content: space-between;
+    min-height: calc(100vh - 100px);
+}
+
+.information,
+.team {
+    width: 330px;
+    padding: 20px;
+}
+
+.statistical {
+    width: 680px;
+}
+
+.information__avt {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.avt__img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.avt__img img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+
+.avt__name h2 {
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    text-shadow: 3px 3px 6px var(--light-bg-dark-shadow), -3px -3px 6px var(--light-bg-light-shadow);
+}
+
+.information__content {
+    width: 270px;
+    margin: 0 auto 25px auto;
+}
+
+.information__box {
+    padding: 5px 2px;
+    background: #e4ebf5;
+    box-shadow: 6px 6px 12px var(--light-bg-dark-shadow), -6px -6px 12px var(--light-bg-light-shadow);
+    border-radius: 10px;
+}
+
+.information__title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #4f4f56;
+}
+
+.box__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.box__row:not(.box__row:last-child) {
+    margin-bottom: 10px;
+}
+
+.box__row p {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.box__row p.light {
+    text-align: center;
+    min-width: 60px;
+    background-color: var(--primary);
+    border-radius: 20px;
+    color: #000;
+    font-weight: bold;
+
+    padding: 5px;
+    color: #fff;
+}
+
+.statistical-content {
+    width: 500px;
+    min-height: 100px;
+    margin: 25px auto;
+}
+
+.statistical-content--title {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.statistical-content--title h2 {
+    font-size: 24px;
+    text-align: center;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.statistical-content--row {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.statistical-content--row p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4f4f56;
+}
+
+.statistical-content--row p.light {
+    color: #4f4f56;
+}
+
+.statistical-content table {
+    width: 100%;
+}
+
+.statistical-content table th,
+.statistical-content table td {
+    text-align: center;
+    padding: 5px;
+}
+
+.statistical-content table thead {
+    font-size: 20px;
+    color: #4f4f56;
+    font-weight: bold;
+}
+
+.statistical-content table tbody {
+    font-weight: bold;
+    color: var(--color-gray);
+}
+
+.team__title {
+    margin: 20px 0;
+}
+
+.team__title h2 {
+    font-size: 24px;
+    text-align: center;
+    color: var(--color-gray);
+}
+
+.accordion {
+    width: 300px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.accordion .parent-tab {
+    margin-bottom: 10px;
+}
+
+.accordion .parent-tab label {
+    background: #e4ebf5;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    z-index: 99;
+    transition: 0.5s;
+
+    box-shadow: var(--box-shadow-inset);
+}
+
+.accordion .parent-tab label:hover span {
+    color: #000;
+}
+
+.accordion label span {
+    color: var(--color-gray);
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.5s;
+}
+
+.parent-tab label .icon {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+    color: #000;
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+
+    box-shadow: var(--box-shadow-inset);
+}
+
+.parent-tab label .icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.parent-tab label .icon:hover i {
+    color: var(--primary);
+}
+
+.parent-tab input:checked ~ label .icon i:before,
+.child-tab input:checked ~ label .icon i:before {
+    content: "\f068";
+}
+
+.accordion .parent-tab .content {
+    max-height: 0px;
+    overflow: hidden;
+    background: #e4ebf5;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+
+.parent-tab input:checked ~ .content {
+    max-height: 100vh;
+}
+
+.parent-tab .content .content__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.parent-tab .content .content__row p {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.parent-tab .content .content__row p:first-child {
+    text-transform: uppercase;
+}
+
+.parent-tab .content .content__row p.light {
+    color: var(--primary);
+}
+
+.parent-tab input[type="radio"],
+.parent-tab input[type="checkbox"] {
+    display: none;
+}

@@ -1,0 +1,185 @@
+<main >
+    <div class="wrapper">
+        <div id="dashboard">
+            <div class="information box">
+                <!-- Dùng ngIF để phân quyền -->
+                <div class="information__avt" *ngIf="user.role == 1">
+                    <div class="avt__img">
+                        <img src="../../assets/img/leader.png" alt="">
+                    </div>
+                    <div class="avt__name">
+                        <h2>{{user.name}}</h2>
+                    </div>
+                </div>
+                <!-- Dùng ngIF để phân quyền -->
+                <div class="information__avt" *ngIf="user.role == 0">
+                    <div class="avt__img">
+                        <img src="../../assets/img/employee.png" alt="">
+                    </div>
+                    <div class="avt__name">
+                        <h2>{{user.name}}</h2>
+                    </div>
+                </div>
+                <div class="information__content">
+                    <div class="information__title">
+                        <h3>Thông tin team <i class="fas fa-info-circle"></i></h3>
+                    </div>
+                    <div class="information__box">
+                        <div class="box__row">
+                            <p><i class="fas fa-user"></i> Số lượng thành viên</p>
+                            <p class="light">10</p>
+                        </div>
+                        <div class="box__row">
+                            <p><i class="fas fa-dollar-sign"></i> Tổng chi phí các dự án</p>
+                            <p class="light">$ 500k</p>
+                        </div>
+                        <div class="box__row">
+                            <p><i class="fas fa-spinner"></i> Các task đang xử lý</p>
+                            <p class="light">5</p>
+                        </div>
+                        <div class="box__row">
+                            <p><i class="fas fa-podcast"></i> Dự án sắp triển khai</p>
+                            <p class="light">1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="information__content">
+                    <div class="information__title">
+                        <h3>Dự án hiện tại <i class="fas fa-bookmark"></i></h3>
+                    </div>
+                    <div class="information__box">
+                        <div class="box__row">
+                            <p>Google <i style="text-align: right;" class="fab fa-google"></i></p>
+                        </div>
+                        <div class="box__row">
+                            <p>Facebook <i class="fab fa-facebook-f"></i></p>
+                        </div>
+                        <div class="box__row">
+                            <p>Amazon <i class="fab fa-amazon"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="statistical box">
+                <div class="statistical-content">
+                    <div class="statistical-content--title">
+                        <h2><i class="fas fa-circle-notch"></i></h2>
+                        <h2>Tổng thể dự án </h2>
+                    </div>
+                    <div class="statistical-content--row">
+                        <p>Chi phí dự án</p>
+                        <p class="light">$ 1.500.000</p>
+                    </div>
+                    <div class="statistical-content--row">
+                        <p>Chi phí đã chi</p>
+                        <p class="light">$ 500.000</p>
+                    </div>
+                    <div class="statistical-content--row">
+                        <p>Còn lại</p>
+                        <p class="light">$ 1.000.000</p>
+                    </div>
+                </div>
+                <div class="statistical-content">
+                    <div class="statistical-content--title">
+                        <h2><i class="fas fa-users"></i></h2>
+                        <h2>Thành viên của nhóm </h2>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Khu vực</th>
+                                <th>Số lượng nhân viên</th>
+                                <th>Nhân viên tạm nghỉ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EAST</td>
+                                <td>20</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>WEST</td>
+                                <td>15</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>SOUTH</td>
+                                <td>5</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>NORTH</td>
+                                <td>15</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="team box">
+                <div class="team__title">
+                    <h2><i class="fas fa-users-cog"></i></h2>
+                    <h2>Tổng số thành viên</h2>
+                </div>
+                <div class="accordion">
+                    <div class="parent-tab">
+                        <input type="radio" name="tab" id="tab-1">
+                        <label for="tab-1">
+                            <span>Team Admin</span>
+                            <div class="icon"><i class="fas fa-plus"></i></div>
+                        </label>
+                        <div class="content">
+                            <div class="content__row">
+                                <p>Huy</p>
+                                <p class="light">Available</p>
+                            </div>
+                            <div class="content__row">
+                                <p>Lam</p>
+                                <p class="light">Available</p>
+                            </div>
+                            <div class="content__row">
+                                <p>Lập</p>
+                                <p class="light">Busy</p>
+                            </div>
+                            <div class="content__row">
+                                <p>Hải</p>
+                                <p class="light">Busy</p>
+                            </div>
+                            <div class="content__row">
+                                <p>Đạt</p>
+                                <p class="light">Busy</p>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="parent-tab">
+                        <input type="radio" name="tab" id="tab-2">
+                        <label for="tab-2">
+                            <span>Team Employee</span>
+                            <div class="icon"><i class="fas fa-plus"></i></div>
+                        </label>
+                        <div class="content">
+                            <div class="content__row">
+                                <p>Long</p>
+                                <p class="light">Available</p>
+                            </div>
+                            <div class="content__row">
+                                <p>Tú</p>
+                                <p class="light">Available</p>
+                            </div>
+                            <div class="content__row">
+                                <p>Bình</p>
+                                <p class="light">Busy</p>
+                            </div>
+                            <div class="content__row">
+                                <p>James</p>
+                                <p class="light">Busy</p>
+                            </div>
+                        </div>
+                    </div>
+                         
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

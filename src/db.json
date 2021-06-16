@@ -1,0 +1,138 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "projectName": "Project 1",
+      "dateOfStart": "2020-07-21",
+      "teamSize": 1
+    },
+    {
+      "id": 2,
+      "projectName": "Project 2",
+      "dateOfStart": "2021-02-27",
+      "teamSize": 2
+    },
+    {
+      "id": 3,
+      "projectName": "Project 3",
+      "dateOfStart": "2021-05-12",
+      "teamSize": 1
+    },
+    {
+      "id": 4,
+      "projectName": "Project 4",
+      "dateOfStart": "2021-02-27",
+      "teamSize": 3
+    },
+    {
+      "projectName": "Project 5",
+      "dateOfStart": "2021-06-16",
+      "teamSize": 3,
+      "id": 5
+    },
+    {
+      "projectName": "Project 6",
+      "dateOfStart": "2021-06-18",
+      "teamSize": 1,
+      "id": 6
+    },
+    {
+      "projectName": "Project 7",
+      "dateOfStart": "2021-06-09",
+      "teamSize": 2,
+      "id": 7
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Task 1",
+      "description": "aa",
+      "project": "Project 1",
+      "assignedTo": "Designer",
+      "priority": "Nomal",
+      "status": "Holding"
+    },
+    {
+      "id": 2,
+      "name": "Task 2",
+      "description": "bb",
+      "project": "Project 2",
+      "assignedTo": "Database",
+      "priority": "Hard",
+      "status": "Complete"
+    },
+    {
+      "id": 3,
+      "name": "Task 3",
+      "description": "cc",
+      "project": "Project 1",
+      "assignedTo": "Back End",
+      "priority": "Nomal",
+      "status": "Holding"
+    },
+    {
+      "id": 4,
+      "name": "Task 4",
+      "description": "dd",
+      "project": "Project 2",
+      "assignedTo": "Tester",
+      "priority": "Easy",
+      "status": "Complete"
+    },
+    {
+      "name": "Task 5",
+      "description": "ee",
+      "project": "Project 2",
+      "assignedTo": "Database",
+      "priority": "Nomal",
+      "status": "Complete",
+      "id": 5
+    },
+    {
+      "name": "Task 6",
+      "description": "ff",
+      "project": "Project 4",
+      "assignedTo": "Tester",
+      "priority": "Nomal",
+      "status": "Complete",
+      "id": 6
+    }
+  ],
+  "team": [
+    {
+      "id": 1,
+      "name": "East"
+    },
+    {
+      "id": 2,
+      "name": "West"
+    },
+    {
+      "id": 3,
+      "name": "South"
+    },
+    {
+      "id": 4,
+      "name": "North"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "aaa",
+      "pass": "1111",
+      "teamId": 1,
+      "role": "leader",
+      "status": "Available"
+    },
+    {
+      "id": 1,
+      "name": "bbb",
+      "pass": "222",
+      "teamId": 2,
+      "role": "employee",
+      "status": "Busy"
+    }
+  ]
+}
